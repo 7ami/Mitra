@@ -4,3 +4,7 @@ from django.shortcuts import render, HttpResponse
 
 def home(request):
     return render(request, 'companies/home.html')
+
+
+def tour(request):
+    return render(request, 'companies/tour.html')
