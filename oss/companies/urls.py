@@ -5,12 +5,11 @@ urlpatterns = [
     path('', views.home, name="home"),
     path('tour/', views.tour, name="tour"),
     path('guide/', views.guide, name="guide"),
-    path('dinning/', views.dinning, name="dinning"),
+    path('dinn/', views.dinning, name="dinning"),
     path('token/', views.token, name="token"),
     path('aptaxi/', views.aptaxi, name="aptaxi"),
     path('accommo/', views.accommo, name="accommo"),
     path('ticket/', views.ticket, name="ticket"),
-    path('tour/', views.tour, name="tour"),
-    path('tour/', views.tour, name="tour"),
+
 
 ]
