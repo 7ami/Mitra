@@ -1,5 +1,27 @@
 from django.shortcuts import render, HttpResponse
+from .models import Accommo
+from math import ceil
 # Create your views here.
+
+
+def accommo(request):
+    everyprod = []
+    catprods = Accommo.objects.values('category', 'id')
+    cats = {item['category'] for item in catprods}
+    for cat in cats:
+        prods = Accommo.objects.filter(category=cat)
+        n = len(prods)
+        nSlides = n // 4 + ceil((n / 4) - (n // 4))
+        everyprod.append([prods, range(1, nSlides), nSlides])
+
+    # products = Product.objects.all()
+    # print(products)
+    # n = len(products)
+    # nSlides = n // 4 + ceil((n / 4) - (n // 4))
+    # params = {'no_of_slides': nSlides, 'range': range(1, nSlides), 'product': products}
+    # everyprod = [[products, range(1, nSlides), nSlides], [products, range(1, nSlides), nSlides]]
+    params = {'allProds': everyprod}
+    return render(request, 'companies/accommo.html', params)
 
 
 def home(request):
@@ -24,10 +46,6 @@ def token(request):
 
 def ticket(request):
     return render(request, 'companies/ticket.html')
-
-
-def accommo(request):
-    return render(request, 'companies/accommo.html')
 
 
 def guide(request):
