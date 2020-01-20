@@ -2,7 +2,17 @@
 {% block title%} Accommodations {% endblock %}
 {% block css%}
 
+        
+        .white-text{
 
+         color: #fff;
+         cursor: pointer;
+        text-decoration: italic;
+         
+        }
+       .amir{
+         background-color: rgb(180,5,100);
+        }
           .col-md-3
           {
           display: inline-block;
@@ -49,10 +59,13 @@
 
 {% block body %} 
 
+
+{% load static %}
+
 <div class="container">
      <!--Slideshow starts here -->
     {% for product,range,nSlides in allProds  %}
-    <h4 class="my-4">{{product.0.category}}</h4>
+    <h2 class="my-4">{{product.0.category}}</h2>
   <div class="row">
    <div id="demo{{forloop.counter}}" class="col-xs col-sm col-md carousel slide my-2" data-ride="carousel">
     <ul class="carousel-indicators">
@@ -71,14 +84,14 @@
           {% for i in product%}
         <div class="col-xs-3 col-sm-3 col-md-3">
           <div class="card align-items-center" style="width: 18rem;">
-            <img src='/media/{{i.img}}' class="card-img-top" alt="...">
+            <img src='/media/{{i.img}}' class="card-img-top" width= "60%%" height="20%%"  alt="...">
             <div class="card-body">
               <h5 class="card-title" id="namepr{{i.id}}">{{i.name}}</h5>
               <p class="card-text">{{i.desc|slice:"0:20"}}...</p>
                  <span id="divpr{{i.id}}" class ="divpr"><!--statically generated element-->
-                <button id="pr{{i.id}}" class="btn btn-danger cart"> Add To Cart</button> <!--dynamically generated element-->
+                <button id="pr{{i.id}}" class="btn  white-text waves-effect waves-light amir cart "> Add To Cart</button> <!--dynamically generated element-->
                  </span>
-            <a href="/shop/product/{{i.id}}"><button id="qv{{i.id}}" class="btn btn-success cart mx-2">Quick View</button></a>
+            <a href="/shop/product/{{i.id}}"><button id="qv{{i.id}}" class="btn  white-text waves-effect waves-light amir mt-0 cart">Quick - View</button></a>
             </div>
           </div>
         </div>
