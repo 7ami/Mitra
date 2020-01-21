@@ -63,6 +63,9 @@ def dinning(request):
 def ticket(request):
     return render(request, 'companies/ticket.html')
 
+# dummy data for test
+guides=[{'img':' ','name':"guidename",'description':"fsdkfjhsdjkfhjsk fsd fs fsdfsdfsdfs fsdfsdf",'detail':"detail1"},{'name':"guidename",'description':"sadasdsasfhjsk fsd fs fsdfsdfsdfs fsdfsdf",'detail':"detail1"},{'name':"guidename",'description':"mbnmbnmbjkfhjsk fsd fs fsdfsdfsdfs fsdfsdf",'detail':"detail3"},{'img':' ','name':"guidename",'description':"fsdkfjhsdjkfhjsk fsd fs fsdfsdfsdfs fsdfsdf",'detail':"detail1"},{'name':"guidename",'description':"sadasdsasfhjsk fsd fs fsdfsdfsdfs fsdfsdf",'detail':"detail1"},{'name':"guidename",'description':"mbnmbnmbjkfhjsk fsd fs fsdfsdfsdfs fsdfsdf",'detail':"detail3"}]
 
 def guide(request):
-    return render(request, 'companies/guide.html')
+    context={'guides':guides}
+    return render(request, 'companies/guide.html',context)

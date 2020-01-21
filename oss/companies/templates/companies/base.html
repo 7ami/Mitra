@@ -52,83 +52,89 @@
      
   </head>
   <body>
+
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark custom-nav sticky-top py-0 my-0">
+        <a class="navbar-brand ml-auto" href="#" ><img src="{% static 'companies/ng.png' %}" width="70px" height="40px"> </a>
+       <div class="collapse navbar-collapse" id="navbarSupportedContent">
+       
+       <a class="navbar-brand ml-auto" href="#" ><img src="{% static 'companies/mitralogo.png' %}" width="150px" height="60px"> </a>
+      
+       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+         <span class="navbar-toggler-icon"></span>
+       </button>
+       
+         <form class="form-inline my-2 my-lg-0">
+           <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+           <button class="btn btn-outline-light my-2 my-sm-0 py-2" type="submit">Search</button>
+         </form>
+         <ul class="navbar-nav mr-auto">
+         <li class="nav-item">
+           <a class="nav-link" href="#">Register</a>
+         </li>
+         <li class="nav-item">
+           <a class="nav-link" href="#">Sign In</a>
+         </li>
+         
+       </ul>
+       <a class="navbar-brand ml-auto" href="#" ><img src="{% static 'companies/vn.png' %}" width="90px" height="40px"> </a>
+      </div>
+     
+     </nav>
+     
+     
+     
+     
+     
+     
+     
+     
+     <nav class="navbar navbar-expand-lg navbar-dark custom-nav py-0">
+       
+       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+         <span class="navbar-toggler-icon"></span>
+       </button>
+     
+       <div class="collapse navbar-collapse" id="navbarSupportedContent">
+         <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+             <a class="nav-link" href="/company/tour">Touring Activities</a>
+           </li>
+           <li class="nav-item">
+             <a class="nav-link" href="/company/guide">Guides available</a>
+           </li>
+           <li class="nav-item">
+             <a class="nav-link" href="/company/accommo">Accommodations</a>
+           </li>
+           <li class="nav-item">
+             <a class="nav-link" href="/company/dinn">Dinnings</a>
+           </li>
+           <li class="nav-item">
+             <a class="nav-link" href="/company/ticket">Ticketings</a>
+           </li>
+           <li class="nav-item">
+             <a class="nav-link" href="/company/token">Token of Love</a>
+           </li>
+           <li class="nav-item">
+             <a class="nav-link" href="/company/aptaxi">Airport Taxis</a>
+           </li>
+             
+         </ul>
+         
+         <button type="button" id="popcart" class="btn btn-secondary mx-2" data-container="body" data-html="true" data-toggle="popover" data-placement="bottom" data-content="Vivamus
+     sagittis lacus vel augue laoreet rutrum faucibus.">
+        Cart(<span id="cart">0</span>)
+     </button>
+       </div>
+      
+     </nav>
+
+    </header>
   
-  <nav class="navbar navbar-expand-lg navbar-dark custom-nav sticky-top py-0 my-0">
-   <a class="navbar-brand ml-auto" href="#" ><img src="{% static 'companies/ng.png' %}" width="70px" height="40px"> </a>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
   
-  <a class="navbar-brand ml-auto" href="#" ><img src="{% static 'companies/mitralogo.png' %}" width="150px" height="60px"> </a>
- 
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-light my-2 my-sm-0 py-2" type="submit">Search</button>
-    </form>
-    <ul class="navbar-nav mr-auto">
-    <li class="nav-item">
-      <a class="nav-link" href="#">Register</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Sign In</a>
-    </li>
-    
-  </ul>
-  <a class="navbar-brand ml-auto" href="#" ><img src="{% static 'companies/vn.png' %}" width="90px" height="40px"> </a>
- </div>
-
-</nav>
-
-
-
-
-
-
-
-
-<nav class="navbar navbar-expand-lg navbar-dark custom-nav py-0">
-  
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-       <li class="nav-item">
-        <a class="nav-link" href="/company/tour">Touring Activities</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/company/guide">Guides available</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/company/accommo">Accommodations</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/company/dinn">Dinnings</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/company/ticket">Ticketings</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/company/token">Token of Love</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/company/aptaxi">Airport Taxis</a>
-      </li>
-        
-    </ul>
-    
-    <button type="button" id="popcart" class="btn btn-secondary mx-2" data-container="body" data-html="true" data-toggle="popover" data-placement="bottom" data-content="Vivamus
-sagittis lacus vel augue laoreet rutrum faucibus.">
-   Cart(<span id="cart">0</span>)
-</button>
-  </div>
- 
-</nav>
-
-{% block body%} {% endblock %}
+<main>
+  {% block body%} {% endblock %}
+</main>
 
 
 

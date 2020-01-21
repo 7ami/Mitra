@@ -1,3 +1,84 @@
 {% extends 'companies/base.html' %}
-{% block title%} Guide {% endblock %}
-{% block body %} I am Guide{% endblock %}
+
+{% block title%} 
+Guide 
+{% endblock %}
+
+{% block css %}
+.mt-20 {
+    margin-top: 20px;
+    margin-bottom: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.cardclass {
+    height: 150 px;
+    
+}
+
+h1{
+    font-family:Arial;
+    color:red;
+}
+{% endblock %}
+
+{% block body %}
+
+{% load static %}
+
+<!--Kathmandu Valley-->
+<div class='container'>
+    <p>
+        <h1> 
+            Guides in Kathmandu valley
+        </h1>
+    </p>
+</div>
+
+
+<div class='container'>
+    <div class="row mt-20">
+        {% for guide in guides %}
+                <div class="col-4 ">
+                    <div class="cardclass card">
+                        <img class="card-img-top" src="{% static 'companies/guide.png' %}" alt="Guide image" width="70px" height="40px">
+                        <div class="card-body">
+                            <h4 class="card-title">{{guide.name}}</h4>
+                            <p class="card-text">{{guide.description}}</p>
+                            <button class="btn btn-primary">{{guide.detail}}</button>
+                        </div>
+                    </div>
+                </div>
+        {% endfor %}
+    </div>
+</div>
+
+<!--Pokhara-->
+<div class='container'>
+    <p class="texts">
+        <h1> 
+            Guides in Pokhara valley
+        </h1>
+    </p>
+</div>
+
+
+<div class='container'>
+    <div class="row mt-20">
+        {% for guide in guides %}
+                <div class="col-4 ">
+                    <div class="cardclass card">
+                        <img class="card-img-top" src="{% static 'companies/guide.png' %}" alt="Guide image" width="70px" height="40px">
+                        <div class="card-body">
+                            <h4 class="card-title">{{guide.name}}</h4>
+                            <p class="card-text">{{guide.description}}</p>
+                            <button class="btn btn-primary">{{guide.detail}}</button>
+                        </div>
+                    </div>
+                </div>
+        {% endfor %}
+    </div>
+</div>
+
+ {% endblock %}
