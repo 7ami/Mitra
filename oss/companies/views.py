@@ -25,23 +25,19 @@ def accommo(request):
 
 
 def token(request):
+    print('amir')
     includeall = []
     prodscat = Token.objects.values('category', 'id')
     maincat = {item['category'] for item in prodscat}
+    print(prodscat)
+    print(maincat)
     for c in maincat:
-        products = Token.objects.filter(category=c)
-        n = len(products)
-        nSlides = n // 4 + ceil((n / 4) - (n // 4))
-        includeall.append([products, range(1, nSlides), nSlides])
-
-    # products = Product.objects.all()
-    # print(products)
-    # n = len(products)
-    # nSlides = n // 4 + ceil((n / 4) - (n // 4))
-    # params = {'no_of_slides': nSlides, 'range': range(1, nSlides), 'product': products}
-    # everyprod = [[products, range(1, nSlides), nSlides], [products, range(1, nSlides), nSlides]]
-    params = {'allProds': includeall}
-    return render(request, 'companies/token.html', params)
+        ingri = Token.objects.filter(category=c)
+        num = len(ingri)
+        nsli = num // 4 + ceil((num / 4) - (num // 4))
+        includeall.append([ingri, range(1, nsli), nsli])
+    parameters = {'proall': includeall}
+    return render(request, 'companies/token.html', parameters)
 
 
 def home(request):
@@ -64,10 +60,6 @@ def aptaxi(request):
 
 def dinning(request):
     return render(request, 'companies/dinning.html')
-
-
-def token(request):
-    return render(request, 'companies/token.html')
 
 
 def ticket(request):
