@@ -25,7 +25,7 @@ class Token(models.Model):
     price = models.IntegerField(default=0)
     desc = models.CharField(max_length=600)
     date = models.DateField()
-    img = models.ImageField(upload_to="companies/token/images", default="")
+    img = models.ImageField(upload_to="companies/images", default="")
 
     def __str__(self):
         return self.name
