@@ -47,6 +47,10 @@ def hotelview(request, myid):
     product = Accommo.objects.filter(id=myid)
     return render(request, 'companies/hotelview.html', {'product': product[0]})
 
+def shopview(request, myyid):
+    fashion = Token.objects.filter(id=myyid)
+    return render(request, 'companies/shopview.html', {'product': fashion[0]})
+
 
 def tour(request):
     return render(request, 'companies/tour.html')
