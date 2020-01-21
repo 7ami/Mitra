@@ -25,12 +25,10 @@ def accommo(request):
 
 
 def token(request):
-    print('amir')
     includeall = []
     prodscat = Token.objects.values('category', 'id')
     maincat = {item['category'] for item in prodscat}
-    print(prodscat)
-    print(maincat)
+    print('amir')
     for c in maincat:
         ingri = Token.objects.filter(category=c)
         num = len(ingri)

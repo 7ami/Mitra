@@ -12,7 +12,7 @@
          
         }
        .amir{
-         background-color: rgb(180,5,100);
+         background-color: rgb(30,140,60);
         }
           .col-md-3
           {
@@ -56,13 +56,13 @@
 
 {% block body %} 
 
-<h1> oe ranabhat</h1>
+
 
 <div class="container">
      <!--Slideshow starts here -->
-     <h1> oe ranabhat</h1>
+     
        {% for ingri,range,nsli in proall %}
-       <h1> oe ranabhat</h1>
+      
        <h2 class="my-4">{{ingri.0.category}}</h2>
         <div class="row">
    <div id="tokendemo{{forloop.counter}}" class="col-xs col-sm col-md carousel slide my-2" data-ride="carousel">
@@ -86,11 +86,11 @@
             <div class="card-body">
               <h5 class="card-title" id="tokennamepr{{i.id}}">{{i.name}}</h5>
               <p class="card-text">{{i.desc|slice:"0:20"}}...</p>
-              <!--
+              
                  <span id="divpr{{i.id}}" class ="divpr">   
-                <button id="pr{{i.id}}" class="btn  white-text waves-effect waves-light amir cart "> Add To Cart</button> 
-                 </span> -->
-            <a href="/company/hotels/{{i.id}}"><button id="tokenqv{{i.id}}" class="btn  white-text waves-effect waves-light amir mt-0 cart ml-auto">Quick - View</button></a>
+                <button id="pr{{i.id}}" class="btn  white-text waves-effect waves-light amir cart ml-auto mt-0"> Add To Cart</button> 
+                 </span> 
+            <a href="#"><button id="tokenqv{{i.id}}" class="btn  white-text waves-effect waves-light amir mt-0 cart ml-auto">Quick - View</button></a>
             </div>
           </div>
         </div>
