@@ -1,5 +1,5 @@
 from django.shortcuts import render, HttpResponse
-from .models import Accommo, Token
+from .models import Accommo, Token, Tour
 from math import ceil
 # Create your views here.
 
@@ -49,7 +49,20 @@ def hotelview(request, myid):
 
 
 def tour(request):
-    return render(request, 'companies/tour.html')
+    everyprodtour = []
+    catprods = Tour.objects.values('category', 'id')
+    cats = {item['category'] for item in catprods}
+    for cat in cats:
+        prods = Tour.objects.filter(category=cat)
+        n = len(prods)
+        nSlides = n // 4 + ceil((n / 4) - (n // 4))
+        everyprodtour.append([prods, range(1, nSlides), nSlides])
+    paramet = {'everyprodtour': everyprodtour}
+    return render(request, 'companies/tour.html', paramet)
+
+def tourview(request, myid):
+    place = Tour.objects.filter(id=myid)
+    return render(request, 'companies/tourview.html', {'place': place[0]})
 
 
 def aptaxi(request):
