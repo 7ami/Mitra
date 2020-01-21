@@ -9,6 +9,7 @@ urlpatterns = [
     path('token/', views.token, name="token"),
     path('aptaxi/', views.aptaxi, name="aptaxi"),
     path('accommo/', views.accommo, name="accommo"),
+    path('hotels/<int:myid>', views.hotelview, name="hotelview"),
     path('ticket/', views.ticket, name="ticket"),
 
 

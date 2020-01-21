@@ -26,6 +26,12 @@ def accommo(request):
 
 def home(request):
     return render(request, 'companies/home.html')
+ # django automatically takes id iff nott mentioned primary key
+
+
+def hotelview(request, myid):
+    product = Accommo.objects.filter(id=myid)
+    return render(request, 'companies/hotelview.html', {'product': product[0]})
 
 
 def tour(request):
