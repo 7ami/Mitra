@@ -22,8 +22,8 @@
           background-color: pink;
             }
           .col-md-3 img{
-          width:175px;
-          height:220px;
+          width:312px;
+          height:180px;
           }
           body .carousel-indicator li{
           background-color: pink;
@@ -84,7 +84,7 @@
           {% for i in product%}
         <div class="col-xs-3 col-sm-3 col-md-3">
           <div class="card align-items-center" style="width: 18rem;">
-            <img src='/media/{{i.img}}' class="card-img-top"  alt="...">
+            <img src='/media/{{i.img}}' class="card-img-top container mx-2"  alt="...">
             <div class="card-body">
               <h5 class="card-title" id="namepr{{i.id}}">{{i.name}}</h5>
               <p class="card-text">{{i.desc|slice:"0:20"}}...</p>
