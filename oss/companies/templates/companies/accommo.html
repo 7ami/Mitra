@@ -11,7 +11,66 @@
          
         }
        .amir{
-         background-color: rgb(180,5,100);
+         background-color: rgb(185,5,90);
+        }
+        .my-4{
+          font-weight:bold;
+        }
+        .titl{
+         
+          background-color:rgb(185,5,90);
+          
+          text-align: center;
+          color:white;
+        }
+        .text_at_top{
+       font-size:35px;
+       font-weight:bold;
+          color:rgb(185,5,90);
+          margin-bottom:25px;
+         
+  
+         }
+        .circumstance{
+          margin-left:50px;
+          margin-top:50px;
+         
+        height:200px;
+       
+    }
+    .input{
+      width:150px;
+    }
+    .form-control mr-sm-2{
+      width=100px;
+    }
+    .form-control mr-sm-2{
+      width=5px;
+      border: 1px solid rgb(185,5,90);
+    }
+    .searchbtn{
+      color:rgb(256,256,256); 
+      background-color: rgb(185,5,90); 
+      
+  border: none;
+  
+  padding: 15px 32px;
+  text-align: center;
+    }
+    .form-control:mr-sm-3
+    {
+    size:120px;
+    }
+    .datepicker{
+      width:30px;
+      
+    }
+    .input:form-control mr-sm-3{
+      width:120px;
+    }
+  
+
+
         }
           .col-md-3
           {
@@ -22,8 +81,8 @@
           background-color: pink;
             }
           .col-md-3 img{
-          width:312px;
-          height:180px;
+          width:165px;
+          height:200px;
           }
           body .carousel-indicator li{
           background-color: pink;
@@ -47,7 +106,11 @@
            padding-left: 0,
            padding-right: 0;
            }
-
+           .form-inline .form-control {
+            display: inline-block;
+            width: 160px;
+            vertical-align: middle;
+        }
 
 
 
@@ -62,10 +125,36 @@
 
 {% load static %}
 
+<div class="circumstance">
+  <h2 class="text_at_top">Find Hotels According To Your Circumstance...</h2>
+  <form class="form-inline my-2 my-lg-0">
+    <input class="form-control mr-sm-2" list="hosting-plan" type="text"placeholder="place">
+ 
+<datalist id="hosting-plan">
+    <option value="Kathmandu"/>
+    <option value="Bhaktapur"/>
+    <option value="Lalitpur"/>
+</datalist>
+
+<pre>   </pre>
+    <input id=datepicker name="in_date" class="form-control mr-sm-3" type="date" placeholder="check in" min="2020-2-1" aria-label="date"/>
+    <pre>   </pre>
+    <input  class="form-control mr-sm-3" type="date" placeholder="check out" aria-label="date"/>
+    <pre>   </pre>
+    <input  class="form-control mr-sm-4"type="number" placeholder="member number" min="1">
+    <pre>   </pre>
+    <input  class="form-control mr-sm-4"type="number" placeholder="room number" min="1">
+    <pre>   </pre>
+    <button class="searchbtn" type="submit">Search</button>
+  </form>
+</div>
 <div class="container">
+ 
      <!--Slideshow starts here -->
     {% for product,range,nSlides in allProds  %}
+    <div class="titl">
     <h2 class="my-4">{{product.0.category}}</h2>
+  </div>
   <div class="row">
    <div id="demo{{forloop.counter}}" class="col-xs col-sm col-md carousel slide my-2" data-ride="carousel">
     <ul class="carousel-indicators">
@@ -84,7 +173,7 @@
           {% for i in product%}
         <div class="col-xs-3 col-sm-3 col-md-3">
           <div class="card align-items-center" style="width: 18rem;">
-            <img src='/media/{{i.img}}' class="card-img-top container mx-2"  alt="...">
+            <img src='/media/{{i.img}}' class="card-img-top"  alt="...">
             <div class="card-body">
               <h5 class="card-title" id="namepr{{i.id}}">{{i.name}}</h5>
               <p class="card-text">{{i.desc|slice:"0:20"}}...</p>
