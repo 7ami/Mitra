@@ -16,7 +16,7 @@
           .col-md-3
           {
           display: inline-block;
-          margin-left:-4px;
+          margin-left:-2px;
           }
           .carousel-indicators .active {
           background-color: pink;
@@ -91,7 +91,7 @@
               
                  <span id="divpr{{i.id}}" class ="divpr">   
                 <button id="pr{{i.id}}" class="btn  white-text waves-effect waves-light amir cart "> Add To Cart</button> 
-                 
+                 </span>
             <a href="/company/hotels/{{i.id}}"><button id="qv{{i.id}}" class="btn  white-text waves-effect waves-light amir mt-0 cart ml-auto">Quick - View</button></a>
             </div>
           </div>
@@ -126,27 +126,69 @@ if(localStorage.getItem('cart') == null){
 }else
 {
   cart = JSON.parse(localStorage.getItem('cart'));
-  document.getElementById('cart').innerHTML = Object.keys(cart).length;
-}
+  updcart(cart);
+  }
 
-$('.cart').click(function()
+
+$('.divpr').on('click','button.cart',function()
 {
 
 var strid = this.id.toString();
 if(cart[strid] != undefined){
-  cart[strid] =cart[strid] +1;
+  nes =cart[strid][0] +1;
+  name ="My Item";
+  card[strid]=[nes,name];
 
 }else{
-
-  cart[strid] = 1;
+  nes=1;
+  name = "My Item";
+  cart[strid]=[nes,name];
 }
-localStorage.setItem('cart',JSON.stringify(cart));
-document.getElementById('cart').innerHTML = Object.keys(cart).length;
-console.log(cart);
+updcart(cart);
 
 
 });
-$('#popcart').popover('show')
+
+//popovering the cart
+$('#popcart').popover();
+updpopover(cart);
+
+
+//popover section
+function updpopover(cart)
+{
+   
+   var popstr = "";
+   popstr = popstr + "<h5> Cart Items:)</h5><div class='mx-2 my-2'>";
+   var z=1;
+   for(var item in cart)
+   {
+     popstr = popstr +"<b>"+z+"</b>.";
+     popstr = popstr + document.getElementById('name'+item).innerHTML.slice(0,20) + "...Qty:" + cart[item][0] +'<br>';
+     z=z+1;
+   }   
+   //popstr = popstr + "</div> <a href='/shop/checkout'><button class='btn btn-success' id ='checkout'>Checkout</button></a> <button class='btn btn-success' onclick='clearCart()' id ='clearCart'>Clear Cart</button>"
+   document.getElementById('popcart').setAttribute('data-content',popstr);
+   $('#popcart').popover('show');
+
+
+}
+
+
+
+function updcart(cart){
+
+  var total = 0;
+  for(var item in cart){
+    total =total + cart[item][0];
+   }
+  localStorage.setItem('cart',JSON.stringify(cart));
+  document.getElementById('cart').innerHTML = total;
+  updpopover(cart);
+}
+
+
+
 
 </script>
 
