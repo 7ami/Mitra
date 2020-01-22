@@ -88,10 +88,10 @@
             <div class="card-body">
               <h5 class="card-title" id="namepr{{i.id}}">{{i.name}}</h5>
               <p class="card-text">{{i.desc|slice:"0:20"}}...</p>
-              <!--
+              
                  <span id="divpr{{i.id}}" class ="divpr">   
                 <button id="pr{{i.id}}" class="btn  white-text waves-effect waves-light amir cart "> Add To Cart</button> 
-                 </span> -->
+                 
             <a href="/company/hotels/{{i.id}}"><button id="qv{{i.id}}" class="btn  white-text waves-effect waves-light amir mt-0 cart ml-auto">Quick - View</button></a>
             </div>
           </div>
@@ -116,5 +116,41 @@
     </div>  <!--row ko-->
      {% endfor %}
 </div>
+{% endblock %}
+
+{% block js %}
+<script type ="text/javascript">
+
+if(localStorage.getItem('cart') == null){
+     var cart = {};
+}else
+{
+  cart = JSON.parse(localStorage.getItem('cart'));
+  document.getElementById('cart').innerHTML = Object.keys(cart).length;
+}
+
+$('.cart').click(function()
+{
+
+var strid = this.id.toString();
+if(cart[strid] != undefined){
+  cart[strid] =cart[strid] +1;
+
+}else{
+
+  cart[strid] = 1;
+}
+localStorage.setItem('cart',JSON.stringify(cart));
+document.getElementById('cart').innerHTML = Object.keys(cart).length;
+console.log(cart);
+
+
+});
+$('#popcart').popover('show')
+
+</script>
+
+
+
 {% endblock %}
 
