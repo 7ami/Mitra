@@ -19,14 +19,14 @@
           .col-md-3
           {
           display: inline-block;
-          margin-left:-4px;
+          margin-left:-2px;
           }
           .carousel-indicators .active {
           background-color: pink;
             }
           .col-md-3 img{
           width:300px;
-          height:300px;
+          height:250px;
           }
           body .carousel-indicator li{
           background-color: pink;
@@ -101,7 +101,7 @@
 
           {% for i in taxi%}
         <div class="col-xs-3 col-sm-3 col-md-3">
-          <div class="card align-items-center" style="width: 18rem;">
+          <div class="card align-items-center" style="width: 19rem;">
             <div class="card-body">
               <img src='https://image.shutterstock.com/image-vector/taxi-vector-icon-600w-1025129527.jpg' class="card-img-top container mx-2"  alt="...">
               <h5 class="card-title" id="namepr{{i.id}}" align='center'>Taxi No: {{i.number}}</h5>
@@ -112,7 +112,7 @@
                  <span id="divpr{{i.id}}" class ="divpr">   
                 <button id="pr{{i.id}}" class="btn  white-text waves-effect waves-light amir cart "> Add To Cart</button> 
                  </span> -->
-            <a href="/company/aptaxi" align='center'><button id="qv{{i.id}}" class="btn  white-text waves-effect waves-light amir mt-0 cart ml-auto">Book</button></a>
+            <a href="/company/aptaxi" align='center'><button id="qv{{i.id}}" class="btn  white-text waves-effect waves-light amir mt-0 cart ml-4">Book</button></a>
             </div>
           </div>
         </div>
@@ -125,13 +125,7 @@
 </div>
 
 
-    <!-- left and right controls for the slide -->
-    <a class="carousel-control-prev" href="#demo{{forloop.counter}}" data-slide="prev">
-        <span class="carousel-control-prev-icon"></span>
-    </a>
-    <a class="carousel-control-next" href="#demo{{forloop.counter}}" data-slide="next">
-        <span class="carousel-control-next-icon"></span>
-    </a>
+   
     <br>
     </div>  <!--row ko-->
      {% endfor %}
