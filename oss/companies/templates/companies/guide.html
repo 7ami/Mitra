@@ -31,7 +31,7 @@ h1{
 <div class='container'>
     <p>
         <h1> 
-            Guides in Kathmandu valley
+            Guides in Kathmandu
         </h1>
     </p>
 </div>
@@ -42,11 +42,15 @@ h1{
         {% for guide in guides %}
                 <div class="col-4 ">
                     <div class="cardclass card">
-                        <img class="card-img-top" src="{% static 'companies/guide.png' %}" alt="Guide image" width="70px" height="40px">
+                        <div class='container'>
+                            <img class="card-img-top" src="/media/{{guide.image}}" alt="Guide image" width="320" height="178">
+                        </div>
                         <div class="card-body">
                             <h4 class="card-title">{{guide.name}}</h4>
-                            <p class="card-text">{{guide.description}}</p>
-                            <button class="btn btn-primary">{{guide.detail}}</button>
+                            <p class="card-text">Language: {{guide.lan}}</p>
+                            <p class="card-text">Work experiences: {{guide.qualification}}</p>
+                            <p class="card-text">Rating: {{guide.rating}}</p>
+                            <button class="btn btn-primary">Hire me</button>
                         </div>
                     </div>
                 </div>
@@ -54,11 +58,11 @@ h1{
     </div>
 </div>
 
-<!--Pokhara-->
+<!--Lalitpur-->
 <div class='container'>
-    <p class="texts">
+    <p>
         <h1> 
-            Guides in Pokhara valley
+            Guides in Lalitpur
         </h1>
     </p>
 </div>
@@ -66,19 +70,54 @@ h1{
 
 <div class='container'>
     <div class="row mt-20">
-        {% for guide in guides %}
+        {% for guide in guideslalitpur %}
                 <div class="col-4 ">
                     <div class="cardclass card">
-                        <img class="card-img-top" src="{% static 'companies/guide.png' %}" alt="Guide image" width="70px" height="40px">
+                        <div class='container'>
+                            <img class="card-img-top" src="/media/{{guide.image}}" alt="Guide image" width="320" height="178">
+                        </div>
                         <div class="card-body">
                             <h4 class="card-title">{{guide.name}}</h4>
-                            <p class="card-text">{{guide.description}}</p>
-                            <button class="btn btn-primary">{{guide.detail}}</button>
+                            <p class="card-text">Language: {{guide.lan}}</p>
+                            <p class="card-text">Work experiences: {{guide.qualification}}</p>
+                            <p class="card-text">Rating: {{guide.rating}}</p>
+                            <button class="btn btn-primary">Hire me</button>
                         </div>
                     </div>
                 </div>
         {% endfor %}
     </div>
 </div>
+
+<div class='container'>
+    <p>
+        <h1> 
+            Guides in Bhaktapur
+        </h1>
+    </p>
+</div>
+
+
+<div class='container'>
+    <div class="row mt-20">
+        {% for guide in guidesinbhaktapur %}
+                <div class="col-4 ">
+                    <div class="cardclass card">
+                        <div class='container'>
+                            <img class="card-img-top" src="/media/{{guide.image}}" alt="Guide image" width="320" height="178">
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title">{{guide.name}}</h4>
+                            <p class="card-text">Language: {{guide.lan}}</p>
+                            <p class="card-text">Work experiences: {{guide.qualification}}</p>
+                            <p class="card-text">Rating: {{guide.rating}}</p>
+                            <button class="btn btn-primary">Hire me</button>
+                        </div>
+                    </div>
+                </div>
+        {% endfor %}
+    </div>
+</div>
+
 
  {% endblock %}

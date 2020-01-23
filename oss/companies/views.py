@@ -1,5 +1,5 @@
 from django.shortcuts import render, HttpResponse
-from .models import Accommo, Token, Tour
+from .models import Accommo, Token, Tour, Guide
 from math import ceil
 # Create your views here.
 
@@ -84,5 +84,8 @@ def ticket(request):
 guides=[{'img':' ','name':"guidename",'description':"fsdkfjhsdjkfhjsk fsd fs fsdfsdfsdfs fsdfsdf",'detail':"detail1"},{'name':"guidename",'description':"sadasdsasfhjsk fsd fs fsdfsdfsdfs fsdfsdf",'detail':"detail1"},{'name':"guidename",'description':"mbnmbnmbjkfhjsk fsd fs fsdfsdfsdfs fsdfsdf",'detail':"detail3"},{'img':' ','name':"guidename",'description':"fsdkfjhsdjkfhjsk fsd fs fsdfsdfsdfs fsdfsdf",'detail':"detail1"},{'name':"guidename",'description':"sadasdsasfhjsk fsd fs fsdfsdfsdfs fsdfsdf",'detail':"detail1"},{'name':"guidename",'description':"mbnmbnmbjkfhjsk fsd fs fsdfsdfsdfs fsdfsdf",'detail':"detail3"}]
 
 def guide(request):
-    context={'guides':guides}
+    guides=Guide.objects.filter(category='Kathmandu')
+    guideslalitpur=Guide.objects.filter(category='Lalitpur')
+    guidesinbhaktapur=Guide.objects.filter(category='Bhaktapur')
+    context={'guides':guides,'guideslalitpur':guideslalitpur,'guidesinbhaktapur':guidesinbhaktapur}
     return render(request, 'companies/guide.html',context)
