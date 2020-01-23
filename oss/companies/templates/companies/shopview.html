@@ -18,27 +18,42 @@
 {% block body %}
 <div class="container my-4">
     <div class="row">
-    <div class="col-md-8">
-    <div class="row">
-        <img src="/media/{{product.img}}" width="40%" height="10px"  >
-    </div>
-        <div class="row">
-            <button class="btn  white-text waves-effect waves-light amir mt-0 cart ml-automx-3">Buy Now</button>
-            <button id="tokenpr{{i.id}}" class="btn  white-text waves-effect waves-light amir mt-0  cart">Add To Cart</button>
-        </div>
-    
-    </div>
-
     <div class="col-md-4">
-        <h5>{{product.name}}</h5>
+    <div >
+        <h5 id="tokennamepr{{product.id}}">{{product.name}}</h5><br>
         <p><b>Rs.{{product.price}} </b></p>
         <p>{{product.desc}}</p>
+    </div>
+       <div>
+        <span id="divpr{{i.id}}" class ="divpr">  
+            <!--<button class="btn  white-text waves-effect waves-light amir mt-0 cart ml-automx-3">Buy Now</button>-->
+            <button id="pr{{product.id}}"  class="btn  white-text waves-effect waves-light amir mt-0  cart ml-auto ">Add To Cart</button>
+        </span>  
+        
+        </div>
 
 
     </div>
+        
+    
+    <div class="col-md-8 ">
+     <img src="/media/{{product.img}}" width="45%" height="10px"  >
     </div>
-
-
+    
+        
+    </div>
 </div>
 
+
+
+
 {% endblock %}
+
+
+
+
+
+
+
+
+
