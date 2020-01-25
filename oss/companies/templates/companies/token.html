@@ -11,6 +11,14 @@
         text-decoration: italic;
          
         }
+        .titl{
+
+      background-color:rgb(164, 5, 126);
+      text-align :center;
+      color:white;   
+
+
+        }
        .amir{
          background-color: rgb(164, 5, 126);
         }
@@ -62,8 +70,9 @@
      <!--Slideshow starts here -->
      
        {% for ingri,range,nsli in proall %}
-      
+       <div class ="titl">
        <h2 class="my-4">{{ingri.0.category}}</h2>
+       </div>
         <div class="row">
    <div id="tokendemo{{forloop.counter}}" class="col-xs col-sm col-md carousel slide my-2" data-ride="carousel">
     <ul class="carousel-indicators">
@@ -171,13 +180,13 @@ function updpopover(cart)
      z=z+1;
    }   
    
-   popstr = popstr + "</div> <a href='/company/checkout'><button class='btn btn-danger' id ='checkout'>Checkout</button></a> <button class='btn btn-danger' onclick='clearCart()' id ='clearCart'>Clear Cart</button>"
+   //popstr = popstr + "</div> <a href='/company/checkout'><button class='btn btn-danger' id ='checkout'>Checkout</button></a> <button class='btn btn-danger' onclick='clearCart()' id ='clearCart'>Clear Cart</button>"
    document.getElementById('popcart').setAttribute('data-content',popstr);
    $('#popcart').popover('show');
 
 
 }
-
+/*
 function clearCart() {
     cart = JSON.parse(localStorage.getItem('cart'));
     for (var item in cart) {
@@ -187,7 +196,7 @@ function clearCart() {
     location = window.location
     cart = {};
     updateCart(cart);
-}
+}*/
 
 function updcart(cart){
 

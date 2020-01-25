@@ -101,12 +101,13 @@ function updpopover(cart)
      z=z+1;
    }   
    
-   popstr = popstr  +"</div> <a href='/company/checkout'><button class='btn btn-danger' id ='checkout'>Checkout</button></a> <button class='btn btn-danger' onclick='clearCart()' id ='clearCart'>Clear Cart</button>"
+   //popstr = popstr  +"</div> <a href='/company/checkout'><button class='btn btn-danger' id ='checkout'>Checkout</button></a> <button class='btn btn-danger' onclick='clearCart()' id ='clearCart'>Clear Cart</button>"
    document.getElementById('popcart').setAttribute('data-content',popstr);
    $('#popcart').popover('show');
 
 
 }
+/*
 function clearCart() {
     cart = JSON.parse(localStorage.getItem('cart'));
     for (var item in cart) {
@@ -117,6 +118,7 @@ function clearCart() {
     cart = {};
     updateCart(cart);
 }
+*/
 
 
 function updcart(cart){

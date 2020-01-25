@@ -102,7 +102,7 @@ def guide(request):
 
 
 def checkout(request):
-    a = 0
+    hell = False
     if request.method=="POST":
         items_json = request.POST.get('itemsJson', '')
         name = request.POST.get('name', '')
@@ -114,10 +114,10 @@ def checkout(request):
         order = Orders(items_json=items_json, name=name, email=email, address=address, city=city,
         phone=phone, amount=amount)
         order.save()
-        a=1
+        hell=True
         update = OrderUpdate(order_id=order.order_id, update_desc="The order has been placed")
         update.save()
-    return render(request, 'companies/checkout.html', {'b':a})
+    return render(request, 'companies/checkout.html', {'hello':hell})
         #'''# Request paytm to transfer the amount to your account after payment by user
       # )
        # return render(request, 'shop/checkout.html')'''

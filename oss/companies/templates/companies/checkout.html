@@ -15,7 +15,7 @@
 
             <nav aria-label="breadcrumb">
   <ol class="breadcrumb mt-3">
-    <li class="breadcrumb-item active" aria-current="page">Your Cart Total Is <b>Rs. <span id="totalPrice"></span></b>. Enter your details below & place your order. Thank you for using Mitra</li>
+    <li class="breadcrumb-item active" aria-current="page">Your Cart Total Is <b>Rs. <span id="totalPrice">1600</span></b>. Enter your details below & place your order. Thank you for using Mitra</li>
   </ol>
 </nav>
 
@@ -26,7 +26,7 @@
     </div>
     <div class="col my-4">
         <h2>Step 2 - Enter Address & Other Details:</h2>
-        <form method="post" action="/company">{% csrf_token %}
+        <form method="post" action="/company/checkout/">{% csrf_token %}
             <input type="hidden" name="itemsJson" id="itemsJson">
             <input type="hidden" name="amount" id="amount">
             <div class="form-row">
@@ -98,11 +98,13 @@ if ($.isEmptyObject(cart)) {
 document.getElementById('cart').innerHTML = sum;
 document.getElementById('totalPrice').innerHTML = totalPrice;
 $('#itemsJson').val(JSON.stringify(cart));
-{% if b %}
+
+{% if hello %}
 alert('Thanks for ordering with us. Use it to contact if any problem occurs ');
 localStorage.clear();
 document.location = "/";
 {% endif %}
 $('#amount').val($('#totalPrice').html())
+
 </script>
 {% endblock %}
