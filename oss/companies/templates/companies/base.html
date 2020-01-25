@@ -110,13 +110,20 @@
              <a class="nav-link" href="/company/token">Token of Love</a>
            </li>
            
-             
+             <li class="nav-item">
+             <a class="nav-link" href="/company/checkout">Checkout</a>
+           </li>
          </ul>
+         
+         <div>
+         
          
          <button type="button" id="popcart" class="btn btn-secondary mx-2" data-container="body" data-html="true" data-toggle="popover" data-placement="bottom" data-content="Vivamus
      sagittis lacus vel augue laoreet rutrum faucibus.">
         Cart(<span id="cart">0</span>)
-     </button>
+         </button>
+        
+         
        </div>
       
      </nav>
@@ -196,8 +203,8 @@
 
 {% block js %}
 
-<script type ="text/javascript">
 
+/*
 if(localStorage.getItem('cart') == null){
      var cart = {};
 }else
@@ -240,17 +247,28 @@ function updpopover(cart)
    var z=1;
    for(var item in cart)
    {
+     
      popstr = popstr +"<b>"+z+"</b>.";
      popstr = popstr + document.getElementById('name'+item).innerHTML.slice(0,20) + "...Qty:" + cart[item][0] +'<br>';
      z=z+1;
    }   
-   //popstr = popstr + "</div> <a href='/shop/checkout'><button class='btn btn-success' id ='checkout'>Checkout</button></a> <button class='btn btn-success' onclick='clearCart()' id ='clearCart'>Clear Cart</button>"
+   
+   popstr = popstr +"amir" +"</div> <a href='/company/checkout'><button class='btn btn-danger' id ='checkout'>Checkout</button></a> <button class='btn btn-danger' onclick='clearCart()' id ='clearCart'>Clear Cart</button>"
    document.getElementById('popcart').setAttribute('data-content',popstr);
    $('#popcart').popover('show');
 
 
 }
-
+function clearCart() {
+    cart = JSON.parse(localStorage.getItem('cart'));
+    for (var item in cart) {
+        document.getElementById('div' + item).innerHTML = '<button id="' + item + '" class="btn btn-danger cart">Add To Cart</button>'
+    }
+    localStorage.clear();
+    location = window.location
+    cart = {};
+    updateCart(cart);
+}
 
 
 function updcart(cart){
@@ -262,12 +280,10 @@ function updcart(cart){
   localStorage.setItem('cart',JSON.stringify(cart));
   document.getElementById('cart').innerHTML = total;
   updpopover(cart);
-}
+}*/
 
 
-</script>
+
 {% endblock %}
-
-
 </body>
 </html>

@@ -1,6 +1,7 @@
 from django.shortcuts import render, HttpResponse
-from .models import Accommo, Token, Tour,Taxi
+from .models import Accommo, Token, Tour,Taxi,Orders,OrderUpdate
 from math import ceil
+import json
 # Create your views here.
 
 
@@ -96,3 +97,28 @@ guides=[{'img':' ','name':"guidename",'description':"fsdkfjhsdjkfhjsk fsd fs fsd
 def guide(request):
     context={'guides':guides}
     return render(request, 'companies/guide.html',context)
+
+
+
+
+def checkout(request):
+    a = 0
+    if request.method=="POST":
+        items_json = request.POST.get('itemsJson', '')
+        name = request.POST.get('name', '')
+        amount = request.POST.get('amount', '')
+        email = request.POST.get('email', '')
+        address = request.POST.get('address1', '') + " " + request.POST.get('address2', '')
+        city = request.POST.get('city', '')
+        phone = request.POST.get('phone', '')
+        order = Orders(items_json=items_json, name=name, email=email, address=address, city=city,
+        phone=phone, amount=amount)
+        order.save()
+        a=1
+        update = OrderUpdate(order_id=order.order_id, update_desc="The order has been placed")
+        update.save()
+    return render(request, 'companies/checkout.html', {'b':a})
+        #'''# Request paytm to transfer the amount to your account after payment by user
+      # )
+       # return render(request, 'shop/checkout.html')'''
+
