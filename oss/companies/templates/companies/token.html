@@ -12,7 +12,7 @@
          
         }
        .amir{
-         background-color: rgb(30,140,60);
+         background-color: rgb(164, 5, 126);
         }
           .col-md-3
           {
@@ -84,7 +84,7 @@
           <div class="card align-items-center" style="width: 18rem;">
             <img src='/media/{{i.img}}' class="card-img-top"  alt="...">
             <div class="card-body">
-              <h5 class="card-title" id="tokennamepr{{i.id}}">{{i.name}}</h5>
+              <h5 class="card-title" id="namepr{{i.id}}">{{i.name}}</h5>
               <p class="card-text">{{i.desc|slice:"0:20"}}...</p>
               
                  <span id="divpr{{i.id}}" class ="divpr">   
@@ -167,7 +167,7 @@ function updpopover(cart)
    for(var item in cart)
    {
      popstr = popstr +"<b>"+z+"</b>.";
-     popstr = popstr + document.getElementById('tokenname'+item).innerHTML.slice(0,20) + "...Qty:" + cart[item][0] +'<br>';
+     popstr = popstr + document.getElementById('name'+item).innerHTML.slice(0,20) + "...Qty:" + cart[item][0] +'<br>';
      z=z+1;
    }   
    //popstr = popstr + "</div> <a href='/shop/checkout'><button class='btn btn-success' id ='checkout'>Checkout</button></a> <button class='btn btn-success' onclick='clearCart()' id ='clearCart'>Clear Cart</button>"

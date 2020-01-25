@@ -99,26 +99,17 @@
        <div class="collapse navbar-collapse" id="navbarSupportedContent">
          <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-             <a class="nav-link" href="/company/tour">Touring Activities</a>
+             <a class="nav-link" href="/company/tour">Tour</a>
            </li>
            <li class="nav-item">
              <a class="nav-link" href="/company/guide">Guides available</a>
            </li>
-           <li class="nav-item">
-             <a class="nav-link" href="/company/accommo">Accommodations</a>
-           </li>
-           <li class="nav-item">
-             <a class="nav-link" href="/company/dinn">Dinnings</a>
-           </li>
-           <li class="nav-item">
-             <a class="nav-link" href="/company/ticket">Ticketings</a>
-           </li>
+           
+           
            <li class="nav-item">
              <a class="nav-link" href="/company/token">Token of Love</a>
            </li>
-           <li class="nav-item">
-             <a class="nav-link" href="/company/aptaxi">Airport Taxis</a>
-           </li>
+           
              
          </ul>
          
@@ -200,15 +191,83 @@
 
 
 
+
+
+
 {% block js %}
+
+<script type ="text/javascript">
+
+if(localStorage.getItem('cart') == null){
+     var cart = {};
+}else
+{
+  cart = JSON.parse(localStorage.getItem('cart'));
+  updcart(cart);
+  }
+  
+
+$('.divpr').on('click','button.cart',function()
+{
+
+var strid = this.id.toString();
+if(cart[strid] != undefined){
+  nes =cart[strid][0] +1;
+  name ="My Item";
+  card[strid]=[nes,name];
+
+}else{
+  nes=1;
+  name = "My Item";
+  cart[strid]=[nes,name];
+}
+updcart(cart);
+
+
+});
+
+//popovering the cart
+$('#popcart').popover();
+updpopover(cart);
+
+
+//popover section
+function updpopover(cart)
+{
+   
+   var popstr = "";
+   popstr = popstr + "<h5> Cart Items:)</h5><div class='mx-2 my-2'>";
+   var z=1;
+   for(var item in cart)
+   {
+     popstr = popstr +"<b>"+z+"</b>.";
+     popstr = popstr + document.getElementById('name'+item).innerHTML.slice(0,20) + "...Qty:" + cart[item][0] +'<br>';
+     z=z+1;
+   }   
+   //popstr = popstr + "</div> <a href='/shop/checkout'><button class='btn btn-success' id ='checkout'>Checkout</button></a> <button class='btn btn-success' onclick='clearCart()' id ='clearCart'>Clear Cart</button>"
+   document.getElementById('popcart').setAttribute('data-content',popstr);
+   $('#popcart').popover('show');
+
+
+}
+
+
+
+function updcart(cart){
+
+  var total = 0;
+  for(var item in cart){
+    total =total + cart[item][0];
+   }
+  localStorage.setItem('cart',JSON.stringify(cart));
+  document.getElementById('cart').innerHTML = total;
+  updpopover(cart);
+}
+
+
+</script>
 {% endblock %}
 
 
-
-
-
-
-
-
- </body>
+</body>
 </html>

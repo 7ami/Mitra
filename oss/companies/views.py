@@ -53,7 +53,7 @@ def shopview(request, myyid):
 
 
 def tour(request):
-    everyprodtour = []
+    '''everyprodtour = []
     catprods = Tour.objects.values('category', 'id')
     cats = {item['category'] for item in catprods}
     for cat in cats:
@@ -61,8 +61,8 @@ def tour(request):
         n = len(prods)
         nSlides = n // 4 + ceil((n / 4) - (n // 4))
         everyprodtour.append([prods, range(1, nSlides), nSlides])
-    paramet = {'everyprodtour': everyprodtour}
-    return render(request, 'companies/tour.html', paramet)
+    paramet = {'everyprodtour': everyprodtour}'''
+    return render(request, 'companies/asterik.html')
 
 def tourview(request, myid):
     place = Tour.objects.filter(id=myid)
