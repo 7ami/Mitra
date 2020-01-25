@@ -1,6 +1,7 @@
+
 {% extends 'companies/base.html' %}
 
-{% block title%} {{product.name}}{% endblock %}
+{% block title%} {% endblock %}
 {% block css %}
        .white-text{
 
@@ -20,14 +21,14 @@
     <div class="row">
     <div class="col-md-4">
     <div >
-        <h5 id="namepr{{product.id}}">{{product.name}}</h5><br>
-        <p><b>Rs.{{product.price}} </b></p>
-        <p>{{product.desc}}</p>
+        <h5 id="namepr{{product.id}}"></h5><br>
+        <p><b> </b></p>
+        <p></p>
     </div>
        <div>
         <span id="divpr{{i.id}}" class ="divpr">  
             <!--<button class="btn  white-text waves-effect waves-light amir mt-0 cart ml-automx-3">Buy Now</button>-->
-            <button id="pr{{product.id}}"  class="btn  white-text waves-effect waves-light amir mt-0  cart ml-auto ">Add To Cart</button>
+            <a id="pr{{product.id}}"  class="  cart "></a>
         </span>  
         
         </div>
@@ -37,20 +38,22 @@
         
     
     <div class="col-md-8 ">
-     <img src="/media/{{product.img}}" width="45%" height="10px"  >
+    
     </div>
     
         
     </div>
 </div>
 
+
+
+
 {% endblock %}
 
 
 
-
-
 {% block js %}
+
 <script type ="text/javascript">
 
 if(localStorage.getItem('cart') == null){
@@ -95,19 +98,17 @@ function updpopover(cart)
    var z=1;
    for(var item in cart)
    {
-     
      popstr = popstr +"<b>"+z+"</b>.";
      popstr = popstr + document.getElementById('name'+item).innerHTML.slice(0,20) + "...Qty:" + cart[item][0] +'<br>';
      z=z+1;
    }   
-   
-   //popstr = popstr  +"</div> <a href='/company/checkout'><button class='btn btn-danger' id ='checkout'>Checkout</button></a> <button class='btn btn-danger' onclick='clearCart()' id ='clearCart'>Clear Cart</button>"
+   //popstr = popstr + "</div> <a href='/company/checkout'><button class='btn btn-success' id ='checkout'>Checkout</button></a> <button class='btn btn-success' onclick='clearCart()' id ='clearCart'>Clear Cart</button>"
    document.getElementById('popcart').setAttribute('data-content',popstr);
    $('#popcart').popover('show');
 
 
 }
-/*
+
 function clearCart() {
     cart = JSON.parse(localStorage.getItem('cart'));
     for (var item in cart) {
@@ -118,7 +119,6 @@ function clearCart() {
     cart = {};
     updateCart(cart);
 }
-*/
 
 
 function updcart(cart){

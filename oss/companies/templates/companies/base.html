@@ -5,7 +5,8 @@
     
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <script src='https://api.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.css' rel='stylesheet' />
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
@@ -55,10 +56,10 @@
 
     <header>
       <nav class="navbar navbar-expand-lg navbar-dark custom-nav sticky-top py-0 my-0">
-        <a class="navbar-brand ml-auto" href="#" ><img src="{% static 'companies/ng.png' %}" width="70px" height="40px"> </a>
+        <a class="navbar-brand ml-auto" href="#" ><img src="{% static 'companies/mitralogo.png' %}" width="160px" height="60px"> </a>
        <div class="collapse navbar-collapse" id="navbarSupportedContent">
        
-       <a class="navbar-brand ml-auto" href="#" ><img src="{% static 'companies/mitralogo.png' %}" width="150px" height="60px"> </a>
+      <!-- <a class="navbar-brand ml-auto" href="#" ><img src="{% static 'companies/mitralogo.png' %}" width="150px" height="60px"> </a>-->
       
        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
          <span class="navbar-toggler-icon"></span>
@@ -98,33 +99,31 @@
        <div class="collapse navbar-collapse" id="navbarSupportedContent">
          <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-             <a class="nav-link" href="/company/tour">Touring Activities</a>
+             <a class="nav-link" href="/company">Tour</a>
            </li>
            <li class="nav-item">
              <a class="nav-link" href="/company/guide">Guides available</a>
            </li>
-           <li class="nav-item">
-             <a class="nav-link" href="/company/accommo">Accommodations</a>
-           </li>
-           <li class="nav-item">
-             <a class="nav-link" href="/company/dinn">Dinnings</a>
-           </li>
-           <li class="nav-item">
-             <a class="nav-link" href="/company/ticket">Ticketings</a>
-           </li>
+           
+           
            <li class="nav-item">
              <a class="nav-link" href="/company/token">Token of Love</a>
            </li>
-           <li class="nav-item">
-             <a class="nav-link" href="/company/aptaxi">Airport Taxis</a>
+           
+             <li class="nav-item">
+             <a class="nav-link" href="/company/checkout">Checkout</a>
            </li>
-             
          </ul>
+         
+         <div>
+         
          
          <button type="button" id="popcart" class="btn btn-secondary mx-2" data-container="body" data-html="true" data-toggle="popover" data-placement="bottom" data-content="Vivamus
      sagittis lacus vel augue laoreet rutrum faucibus.">
         Cart(<span id="cart">0</span>)
-     </button>
+         </button>
+        
+         
        </div>
       
      </nav>
@@ -200,8 +199,12 @@
 
 
 
-<script type ="text/javascript">
 
+
+{% block js %}
+
+
+/*
 if(localStorage.getItem('cart') == null){
      var cart = {};
 }else
@@ -244,17 +247,28 @@ function updpopover(cart)
    var z=1;
    for(var item in cart)
    {
+     
      popstr = popstr +"<b>"+z+"</b>.";
-     popstr = popstr + document.getElementById('tokenname'+item).innerHTML.slice(0,20) + "...Qty:" + cart[item][0] +'<br>';
+     popstr = popstr + document.getElementById('name'+item).innerHTML.slice(0,20) + "...Qty:" + cart[item][0] +'<br>';
      z=z+1;
    }   
-   //popstr = popstr + "</div> <a href='/shop/checkout'><button class='btn btn-success' id ='checkout'>Checkout</button></a> <button class='btn btn-success' onclick='clearCart()' id ='clearCart'>Clear Cart</button>"
+   
+   popstr = popstr +"amir" +"</div> <a href='/company/checkout'><button class='btn btn-danger' id ='checkout'>Checkout</button></a> <button class='btn btn-danger' onclick='clearCart()' id ='clearCart'>Clear Cart</button>"
    document.getElementById('popcart').setAttribute('data-content',popstr);
    $('#popcart').popover('show');
 
 
 }
-
+function clearCart() {
+    cart = JSON.parse(localStorage.getItem('cart'));
+    for (var item in cart) {
+        document.getElementById('div' + item).innerHTML = '<button id="' + item + '" class="btn btn-danger cart">Add To Cart</button>'
+    }
+    localStorage.clear();
+    location = window.location
+    cart = {};
+    updateCart(cart);
+}
 
 
 function updcart(cart){
@@ -266,17 +280,10 @@ function updcart(cart){
   localStorage.setItem('cart',JSON.stringify(cart));
   document.getElementById('cart').innerHTML = total;
   updpopover(cart);
-}
-
-
-</script>
+}*/
 
 
 
-
-
-
-
-
- </body>
+{% endblock %}
+</body>
 </html>
